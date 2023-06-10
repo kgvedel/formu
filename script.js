@@ -27,9 +27,6 @@ function start() {
         document.getElementById("subTextUnderJagtTo").style.display = "block";
     } else if (jaegereinput > 16) {
         document.getElementById("subTextUnderJagt").style.display = "block";
-    } else {
-        document.getElementById("subTextUnderJagtTo").style.display = "none";
-        document.getElementById("subTextUnderJagt").style.display = "none";
     }
 
     eventhandler();

@@ -38,12 +38,17 @@ h3 {
     font-weight: 600;
 }
 
-h4,
+textarea{
+    resize: none;
+}
+
 p {
     font-family: "Open Sans";
+    font-size: 1rem;
 }
 
 h4 {
+    font-family: "Open Sans";
     font-size: 1.5rem;
     font-style: normal;
     font-weight: bold;
@@ -231,7 +236,6 @@ table {
 }
 
 .info h4 {
-    font-size: 1rem;
     padding-bottom: 0.5rem;
 }
 
