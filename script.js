@@ -21,7 +21,7 @@ function start() {
     //creating new booking object
     nyBookingInfo = Object.create(bookingInfo);
     //calling my eventhandler
-  
+
 
     eventhandler();
 
@@ -38,15 +38,10 @@ function start() {
         jaegereinput.addEventListener('input', updateCustomerOrder);
         ledsagerinput.addEventListener('input', updateCustomerOrder);
 
-    // eventlistener for eror messages to all fields upon input
-        customerForm = document.querySelector("#booking_jagt_form");
-   
-        let elements = customerForm.elements;
+        // eventlistener for eror messages to all fields upon input
+        errorMessages();
 
-        for (let i = 0, element; element = elements[i++];) {
-           element.addEventListener('input', errorMessages);
-        }
-     
+
         //here i add click eventlistener, if form is valid it prevents default submit, and calls proceed to cart
         //its to make sure that form is still checked for validity, and only prevents default (refresh) once everything IS valid
         document.querySelector(".send_btn").addEventListener("click", function (event) {
@@ -65,9 +60,15 @@ function start() {
 }
 
 
-function errorMessages () {
+function errorMessages() {
+   
 
-    //error message jægere input
+    //Rettede lige i hvordan der kaldes, så der kun kommer fejlbesked op for det element man integerer med og ikke det hele på en gang :)
+   const jaegereinput = customerForm.elements.jaegere;
+   //så bare kopier dette format hvert input felt
+   jaegereinput.addEventListener('input', () => {
+
+    //Error message for jægere input
     const jaegereinput = customerForm.elements.jaegere.value;
 
     if (jaegereinput == 0) {
@@ -78,6 +79,13 @@ function errorMessages () {
         document.getElementById("subTextUnderJagtTo").style.display = "none";
         document.getElementById("subTextUnderJagt").style.display = "none";
     }
+
+
+     }); 
+
+
+
+
 
 }
 
@@ -85,18 +93,6 @@ function errorMessages () {
 
 //updating the booking object based on the latest input from the user
 function updateCustomerOrder() {
-
-
-    const jaegereinput = customerForm.elements.jaegere.value;
-
-    if (jaegereinput == 0) {
-        document.getElementById("subTextUnderJagtTo").style.display = "block";
-    } else if (jaegereinput > 16) {
-        document.getElementById("subTextUnderJagt").style.display = "block";
-    } else {
-        document.getElementById("subTextUnderJagtTo").style.display = "none";
-        document.getElementById("subTextUnderJagt").style.display = "none";
-    }
 
 
 
@@ -182,7 +178,6 @@ function updateCart() {
 
     const antalJaegere = nyBookingInfo.antalJaegere;
     const antalLedsagere = nyBookingInfo.antalLedsagere;
-    const jagtPeriode = nyBookingInfo.jagtperiode;
     let jagtpris = jagtPrisen();
     let jagt_total_pris = jagtpris * antalJaegere;
 
@@ -194,9 +189,16 @@ function updateCart() {
     const cart = document.querySelector("#cart_table");
     cart.querySelector("[data-field=cart_jagt_periode_pris]").textContent = "€" + jagtpris + " pr. Jæger";
     cart.querySelector("[data-field=cart_jagt_periode]").textContent = jagtperiodeText;
-    cart.querySelector("[data-field=cart_total_pris]").textContent = "for " + antalJaegere + " jægere er " + "€" + nyBookingInfo.total_pris;
+
     cart.querySelector("[data-field=cart_jaegere_antal]").textContent = antalJaegere;
     cart.querySelector("[data-field=cart_ledsagere_antal]").textContent = antalLedsagere;
+
+// Check for validity before dispalying price
+    if (customerForm.elements.jaegere.checkValidity()) {
+        cart.querySelector("[data-field=cart_total_pris]").textContent = "for " + antalJaegere + " jægere er " + "€" + nyBookingInfo.total_pris;
+    }else{
+        cart.querySelector("[data-field=cart_total_pris]").textContent = " ";
+    }
 }
 
 //saves all the information form the forms inputs (that has not already been saved at ) into the booking object
