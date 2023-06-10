@@ -21,16 +21,7 @@ function start() {
     //creating new booking object
     nyBookingInfo = Object.create(bookingInfo);
     //calling my eventhandler
-    const jaegereinput = customerForm.elements.jaegere.value;
-
-    if (jaegereinput == 0) {
-        document.getElementById("subTextUnderJagtTo").style.display = "block";
-    } else if (jaegereinput > 16) {
-        document.getElementById("subTextUnderJagt").style.display = "block";
-    } else {
-        document.getElementById("subTextUnderJagtTo").style.display = "none";
-        document.getElementById("subTextUnderJagt").style.display = "none";
-    }
+  
 
     eventhandler();
 
@@ -47,6 +38,15 @@ function start() {
         jaegereinput.addEventListener('input', updateCustomerOrder);
         ledsagerinput.addEventListener('input', updateCustomerOrder);
 
+    // eventlistener for eror messages to all fields upon input
+        customerForm = document.querySelector("#booking_jagt_form");
+   
+        let elements = customerForm.elements;
+
+        for (let i = 0, element; element = elements[i++];) {
+           element.addEventListener('input', errorMessages);
+        }
+     
         //here i add click eventlistener, if form is valid it prevents default submit, and calls proceed to cart
         //its to make sure that form is still checked for validity, and only prevents default (refresh) once everything IS valid
         document.querySelector(".send_btn").addEventListener("click", function (event) {
@@ -65,11 +65,41 @@ function start() {
 }
 
 
+function errorMessages () {
+
+    //error message jægere input
+    const jaegereinput = customerForm.elements.jaegere.value;
+
+    if (jaegereinput == 0) {
+        document.getElementById("subTextUnderJagtTo").style.display = "block";
+    } else if (jaegereinput > 16) {
+        document.getElementById("subTextUnderJagt").style.display = "block";
+    } else {
+        document.getElementById("subTextUnderJagtTo").style.display = "none";
+        document.getElementById("subTextUnderJagt").style.display = "none";
+    }
+
+}
 
 
 
 //updating the booking object based on the latest input from the user
 function updateCustomerOrder() {
+
+
+    const jaegereinput = customerForm.elements.jaegere.value;
+
+    if (jaegereinput == 0) {
+        document.getElementById("subTextUnderJagtTo").style.display = "block";
+    } else if (jaegereinput > 16) {
+        document.getElementById("subTextUnderJagt").style.display = "block";
+    } else {
+        document.getElementById("subTextUnderJagtTo").style.display = "none";
+        document.getElementById("subTextUnderJagt").style.display = "none";
+    }
+
+
+
     console.log("updating the order");
     let t = document.getElementById('valgjagt_periode');
     let jagtperiodeText = t.options[t.selectedIndex].text;
