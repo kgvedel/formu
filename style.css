@@ -169,21 +169,35 @@ textarea:focus {
 
 
 
-.label_input:focus-within::before {
+.label_input:focus-within:before {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
     left: -10px;
     width: 3px;
-    background-color: var(--blue);
     height: 0;
+    background-color: var(--blue);
     transition: height 0.3s ease-in-out;
+    animation: expandLine 0.3s forwards;
+   
 }
 
-.label_input:focus-within::before {
-    animation: expandLine 0.3s forwards;
+ .label_input:focus-within::before {
+    background-color: var(--blue);
 }
+
+
+.label_input:has(:focus-visible:invalid:not(:placeholder-shown))::before  {
+    background-color: var(--spanish_red);
+}
+
+.label_input:has(:focus-visible:valid)::before  {
+    background-color: #5ef570;
+}
+
+
+
 
 @keyframes expandLine {
     0% {
@@ -197,6 +211,9 @@ textarea:focus {
         top: 0;
     }
 }
+
+
+
 
 input:invalid:not(:placeholder-shown) {
     border: 2px solid var(--spanish_red);
