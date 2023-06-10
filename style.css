@@ -1,0 +1,286 @@
+:root {
+    --dark_red: #6b1014;
+    --spanish_red: #ad1519;
+    --dark_yellow: #d8ab00;
+    --spanish_yellow: #fabd00;
+    --white: #f9f9f9;
+    --beige: #e5dac3;
+    --green: #465d52;
+    --dark_green: #123929;
+    --black: #180f0d;
+    --dark_orange: #b45223;
+    --orange: #e3530e;
+    --blue: #6473ff;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Yantramanav";
+    color: var(--black);
+}
+
+h1 {
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 64px;
+    font-style: normal;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 56px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+h4,
+p {
+    font-family: "Open Sans";
+}
+
+h4 {
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+#booking_jagt_section {
+    background-color: var(--green);
+    background-image: url(https://www.vildsvinejagt.com/wp-content/uploads/2023/05/topografi_gron.svg);
+    background-size: 93rem;
+    background-position: -54vw 23vh;
+    padding: 2rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    border-top: 2px solid var(--dark_green);
+}
+
+
+
+.navn_efternavn {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+}
+
+/*this is just a bit general form styling, put it here to make it work, cus wp suxxx*/
+
+form {
+    background: var(--beige);
+    margin: 1rem auto;
+    border-radius: 0.25rem;
+    border: 0.25rem solid var(--spanish_red);
+    box-shadow: 4pt 4pt 8pt rgba(0, 0, 0, 0.113);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.5rem;
+    gap: 1rem;
+    max-width: 40rem;
+}
+
+form input {
+    min-width: 60%;
+    font-family: 'Open Sans';
+    min-height: 2rem;
+}
+
+input:focus,
+input[type=text],
+input[type=email],
+input[type=tel],
+input[type=number],
+select,
+textarea {
+    border: 2px solid transparent;
+    border-radius: 0.25rem;
+    outline: none !important;
+
+}
+
+option:disabled {
+    background-color: #e5e2e2;
+}
+
+form select,
+form textarea {
+    font-family: 'Open Sans';
+}
+
+
+label {
+    font-weight: bold;
+    font-family: 'Open Sans';
+    margin-bottom: 4px;
+}
+
+
+
+form section {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+}
+
+
+
+.label_input {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    flex: 1 0 48%;
+}
+
+
+.req_field {
+    color: var(--spanish_red);
+}
+
+
+/*validation*/
+input:focus,
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=tel]:focus,
+input[type=number]:focus,
+select:focus,
+textarea:focus {
+
+    border: 2px solid var(--blue);
+}
+
+
+
+.label_input:focus-within::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -10px;
+    width: 3px;
+    background-color: var(--blue);
+    height: 0;
+    transition: height 0.3s ease-in-out;
+}
+
+.label_input:focus-within::before {
+    animation: expandLine 0.3s forwards;
+}
+
+@keyframes expandLine {
+    0% {
+        height: 0;
+        bottom: 0;
+    }
+
+    100% {
+        height: 100%;
+        bottom: auto;
+        top: 0;
+    }
+}
+
+input:invalid:not(:placeholder-shown) {
+    border: 2px solid var(--spanish_red);
+}
+
+
+input:focus:valid,
+input:required:valid,
+select:required:valid {
+    border: 2px solid #5ef570;
+}
+
+input:focus {
+
+    border: 0.125rem solid var(--blue);
+}
+
+
+table {
+    background-color: var(--white);
+    border-radius: 0.25rem;
+    margin: 0 auto;
+    padding: 1.5rem;
+    border: 0.25rem solid var(--spanish_red);
+}
+
+#cart_table {
+    max-width: 40rem;
+}
+
+.jagtperiodeWrapper,
+.antaljaegereWrapper,
+.antalledsagereWrapper,
+.total_border {
+    color: var(--black);
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.info h4 {
+    font-size: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.total_border {
+    border-top: 1px solid var(--black);
+    display: flex;
+    padding-top: 0.5rem;
+}
+
+.jagtperiodeWrapper {
+    max-width: 16rem;
+}
+
+.total_border>p:nth-child(1) {
+    font-weight: bold;
+}
+
+
+/*desktop*/
+@media only screen and (min-width: 1024px) {
+    #booking_oplysninger_oplaeg {
+        background-attachment: fixed;
+    }
+
+}
+
+.hidden {
+    display: none;
+}
+
+.subText {
+    margin-bottom: 4px;
+    font-size: 1rem;
+    color: #180f0d;
+
+}
+
+.subTextUnder {
+    font-size: 0.85rem;
+    margin-bottom: 4px;
+    font-style: italic;
+    color: #180f0d;
+}
+
+#subTextUnderJagt,
+#subTextUnderJagtTo {
+    display: none;
+    color: #e11b1b;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    font-style: italic;
+}

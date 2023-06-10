@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+</head>
+
+<body>
+    <section id="booking_jagt_section">
+        <template id="cart">
+            <tbody>
+                <div class="info">
+                    <div class="jagtperiodeWrapper">
+                        <h4>Jagtperiode</h4>
+                        <p data-field="cart_jagt_periode"></p>
+                        <p data-field="cart_jagt_periode_pris"></p>
+                    </div>
+                    <div class="antaljaegereWrapper">
+                        <h4>Antal jægere</h4>
+                        <p data-field="cart_jaegere_antal"></p>
+                    </div>
+                    <div class="antalledsagereWrapper">
+                        <h4>Antal ledsagere</h4>
+                        <p data-field="cart_ledsagere_antal"></p>
+                    </div>
+                </div>
+
+                <div class="total_border">
+                    <p data-field="card_total_title">Prisen&nbsp</p>
+                    <p data-field="cart_total_pris"></p>
+                </div>
+            </tbody>
+        </template>
+
+        <table id="cart_table">
+
+        </table>
+        <form id="booking_jagt_form">
+
+            <section id="jagt_dropdown">
+                <h4>Vælg jagt</h4>
+                <div class="label_input">
+                    <label for="valgjagt">Jagtperiode</label>
+                    <span class="subText">
+                        Angiv hvilken jagtperiode du vil deltage i.
+                    </span>
+                    <select id="valgjagt_periode" name="valgjagt" required>
+                        <option value="" disabled selected>Vælg jagtperiode</option>
+                        <option value="0">3-4-5 November 23 (3 jagtdage)</option>
+                        <option value="1">10-11-12 November 23 (3 jagtdage)</option>
+                        <option value="2">17-18-19 November 23 (3 jagtdage)</option>
+                        <option value="3">24-25-26 November 23 (3 jagtdage)</option>
+                        <option value="4">2-3 December 23 (2 jagtdage)</option>
+                        <option value="5">12-13-14 Januar 24 (3 jagtdage)</option>
+                    </select>
+                </div>
+            </section>
+            <h4>Vælg deltagere</h4>
+            <section id="valg_af_deltagere">
+                <div class="label_input">
+                    <label for="jaegere">Jægere</label>
+                    <span class="subText">
+                        Angiv antal deltagende jægere
+                    </span>
+                    <div id="subTextUnderJagt"><span>
+                            Vi tager maksimalt imod grupper på 16 deltagende jægere
+                        </span></div>
+                    <div id="subTextUnderJagtTo"><span>
+                            Du mangler at tilføje deltagende jægere
+                        </span></div>
+                    <input type="number" id="jaegere" name="jaegere" min="1" max="16" placeholder="Antal jægere"
+                        required>
+
+                </div>
+                <div class="label_input">
+                    <label for="ledsagere">Ledsagere</label>
+                    <span class="subText">
+                        Angiv antal ledsagere.
+                    </span>
+                    <span class="subTextUnder">
+                        Bemærk vi kan maksimalt tage 6 ledsagere til en gruppe på 16 deltagende jægere
+                    </span>
+                    <input type="number" id="ledsagere" name="ledsagere" placeholder="Antal ledsagere" min="0" max="6">
+                </div>
+            </section>
+            <section id="oplysninger">
+                <h4>Dine oplysninger</h4>
+                <div class="navn_efternavn">
+                    <div class="label_input">
+                        <label for="fornavn">Fornavn *</label>
+                        <input type="text" name="fornavn" id="fornavn" minlength="2" placeholder="Indtast fornavn"
+                            required>
+                    </div>
+                    <div class="label_input">
+                        <label for="efternavn">Efternavn *</label>
+                        <input type="text" name="efternavn" id="efternavn" minlength="2" placeholder="Indtast efternavn"
+                            required>
+                    </div>
+                </div>
+
+                <div class="label_input">
+                    <label for="mail">Email *</label>
+                    <input type="email" id="mail" name="mail" placeholder="Indtast email" required>
+                </div>
+                <div class="label_input">
+                    <label for="phone">Mobil/telefon-nummer *</label>
+                    <input type="tel" id="phone" name="phone" maxlength="8" pattern="[0-9]+"
+                        placeholder="Indtast telefonnummer" required>
+
+                </div>
+            </section>
+
+            <section id="kommentar">
+                <h4>Kommentar til din bestilling</h4>
+                <div class="label_input">
+                    <label for="besked">Besked</label>
+                    <textarea name="besked" id="besked" cols="30" rows="10"
+                        placeholder="Tilføj eventuelle kommentarer eller spørgsmål her"></textarea>
+                </div>
+            </section>
+
+            <div class="send_btn">
+                <button class="send_btn" type="submit">Send forespørgsel</button>
+            </div>
+
+
+        </form>
+    </section>
+
+    </form>
+    </section>
+
+</body>
+
+</html>
