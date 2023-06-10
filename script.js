@@ -43,9 +43,10 @@ function start() {
    
         let elements = customerForm.elements;
 
-        for (let i = 0, element; element = elements[i++];) {
-           element.addEventListener('input', errorMessages);
-        }
+ 
+        elements.forEach((element) => {
+            element.addEventListener('input', errorMessages);
+        });
      
         //here i add click eventlistener, if form is valid it prevents default submit, and calls proceed to cart
         //its to make sure that form is still checked for validity, and only prevents default (refresh) once everything IS valid
