@@ -45,9 +45,12 @@
                 <h4>Vælg jagt</h4>
                 <div class="label_input">
                     <label for="valgjagt">Jagtperiode</label>
-                    <span class="subText">
-                        Angiv hvilken jagtperiode du vil deltage i.
-                    </span>
+                    <div class="subText">
+                        <p>Angiv hvilken jagtperiode du vil deltage i </p>
+                    </div>
+                    <div id="subTextErrorPeriode">
+                        <p>Vælg en periode fra listen</p>
+                    </div>
                     <select id="valgjagt_periode" name="valgjagt" required>
                         <option value="" disabled selected>Vælg jagtperiode</option>
                         <option value="0">3-4-5 November 23 (3 jagtdage)</option>
@@ -63,53 +66,70 @@
             <section id="valg_af_deltagere">
                 <div class="label_input">
                     <label for="jaegere">Jægere</label>
-                    <span class="subText">
-                        Angiv antal deltagende jægere
-                    </span>
-                    <div id="subTextUnderJagt"><span>
+                    <div class="subText">
+                        <p>Angiv antal deltagende jægere</p>
+                    </div>
+                    <div id="subTextUnderJagt">
+                        <p>
                             Vi tager maksimalt imod grupper på 16 deltagende jægere
-                        </span></div>
-                    <div id="subTextUnderJagtTo"><span>
+                        </p>
+                    </div>
+                    <div id="subTextUnderJagtTo">
+                        <p>
                             Du mangler at tilføje deltagende jægere
-                        </span></div>
+                        </p>
+                    </div>
                     <input type="number" id="jaegere" name="jaegere" min="1" max="16" placeholder="Antal jægere"
                         required>
 
                 </div>
                 <div class="label_input">
                     <label for="ledsagere">Ledsagere</label>
-                    <span class="subText">
-                        Angiv antal ledsagere.
-                    </span>
-                    <span class="subTextUnder">
-                        Bemærk vi kan maksimalt tage 6 ledsagere til en gruppe på 16 deltagende jægere
-                    </span>
+                    <div class="subText">
+                        <p>Angiv antal ledsagere</p>
+                    </div>
+                    <div id="ledsagerError">
+                        <p>Der er tilføjet for mange ledsagere</p>
+                    </div>
                     <input type="number" id="ledsagere" name="ledsagere" placeholder="Antal ledsagere" min="0" max="6">
+                    <div class="subTextUnder">
+                        <p> * Bemærk vi kan maksimalt tage 6 ledsagere til en gruppe på 16 deltagende jægere. Ved
+                            spørgsmål, tilføj kommentar i besked feltet.</p>
+                    </div>
                 </div>
+
             </section>
             <section id="oplysninger">
                 <h4>Dine oplysninger</h4>
                 <div class="navn_efternavn">
                     <div class="label_input">
                         <label for="fornavn">Fornavn *</label>
-                        <input type="text" name="fornavn" id="fornavn" minlength="2" placeholder="Indtast fornavn"
+                        <div id="navnError">
+                            <p>Indtast dit fornavn</p>
+                        </div>
+                        <input type="text" name="fornavn" id="fornavn" minlength="2" placeholder="Indtast dit fornavn"
                             required>
                     </div>
                     <div class="label_input">
                         <label for="efternavn">Efternavn *</label>
-                        <input type="text" name="efternavn" id="efternavn" minlength="2" placeholder="Indtast efternavn"
-                            required>
+                        <div id="efternavnError">
+                            <p></p>
+                        </div>
+                        <input type="text" name="efternavn" id="efternavn" minlength="2"
+                            placeholder="Indtast dit efternavn" required>
                     </div>
                 </div>
-
                 <div class="label_input">
-                    <label for="mail">Email *</label>
-                    <input type="email" id="mail" name="mail" placeholder="Indtast email" required>
+                    <label for="mail">E-mail *</label>
+                    <div id="mailError">
+                        <p>Indtast din e-mail</p>
+                    </div>
+                    <input type="email" id="mail" name="mail" placeholder="Indtast din e-mail" required>
                 </div>
                 <div class="label_input">
-                    <label for="phone">Mobil/telefon-nummer *</label>
+                    <label for="phone">Mobilnummer *</label>
                     <input type="tel" id="phone" name="phone" maxlength="8" pattern="[0-9]+"
-                        placeholder="Indtast telefonnummer" required>
+                        placeholder="Indtast dit mobilnnummer" required>
 
                 </div>
             </section>
@@ -136,4 +156,5 @@
 
 </body>
 <script src="script.js"></script>
+
 </html>

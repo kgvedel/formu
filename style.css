@@ -50,6 +50,7 @@ font-size: 1rem;
 p {
     font-family: "Open Sans";
     font-size: 1rem;
+    margin: 0;
 }
 
 h4 {
@@ -286,10 +287,23 @@ table {
 }
 
 #subTextUnderJagt,
-#subTextUnderJagtTo {
+#subTextUnderJagtTo,
+#subTextErrorPeriode {
     display: none;
     color: #e11b1b;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+#subTextUnderJagt p,
+#subTextUnderJagtTo p,
+#subTextErrorPeriode p{
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.subTextUnder p{
+    padding-left: 8px;
+    margin-top:4px;
     font-size: 0.85rem;
     font-style: italic;
 }
