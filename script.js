@@ -62,7 +62,6 @@ function start() {
 
 function errorMessages() {
    const ledsagerinput = customerForm.elements.ledsagere;
-   const phoneinput = customerForm.elements.phone;
    const jaegereinput = customerForm.elements.jaegere;
 
 
@@ -94,16 +93,6 @@ function errorMessages() {
         }
 
          });
-
-    phoneinput.addEventListener('input', () => {
-    const phoneinput = customerForm.elements.phone.value;
-    
-     if (phoneinput.length < 8 ) {
-        document.getElementById("phoneError").style.display = "block";
-    } else {
-        document.getElementById("phoneError").style.display = "none";
-    }
-     }); 
 
 }
 
