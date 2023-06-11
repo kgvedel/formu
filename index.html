@@ -48,9 +48,6 @@
                     <div class="subText">
                         <p>Angiv hvilken jagtperiode du vil deltage i </p>
                     </div>
-                    <div id="subTextErrorPeriode">
-                        <p>Vælg en periode fra listen</p>
-                    </div>
                     <select id="valgjagt_periode" name="valgjagt" required>
                         <option value="" disabled selected>Vælg jagtperiode</option>
                         <option value="0">3-4-5 November 23 (3 jagtdage)</option>
@@ -104,32 +101,28 @@
                 <div class="navn_efternavn">
                     <div class="label_input">
                         <label for="fornavn">Fornavn *</label>
-                        <div id="navnError">
-                            <p>Indtast dit fornavn</p>
-                        </div>
                         <input type="text" name="fornavn" id="fornavn" minlength="2" placeholder="Indtast dit fornavn"
                             required>
                     </div>
                     <div class="label_input">
                         <label for="efternavn">Efternavn *</label>
-                        <div id="efternavnError">
-                            <p></p>
-                        </div>
                         <input type="text" name="efternavn" id="efternavn" minlength="2"
                             placeholder="Indtast dit efternavn" required>
                     </div>
                 </div>
                 <div class="label_input">
                     <label for="mail">E-mail *</label>
-                    <div id="mailError">
-                        <p>Indtast din e-mail</p>
+                    <div class="subText">
+                        <p>Indtast din e-mail </p>
                     </div>
-                    <input type="email" id="mail" name="mail" placeholder="Indtast din e-mail" required>
+                    <input type="email" id="mail" name="mail" placeholder="Fx din.mail@eksempel.com" required>
                 </div>
                 <div class="label_input">
-                    <label for="phone">Mobilnummer *</label>
-                    <input type="tel" id="phone" name="phone" maxlength="8" pattern="[0-9]+"
-                        placeholder="Indtast dit mobilnnummer" required>
+                    <label for="phonText">
+                        <p>Indtast dit mobil- eller telefonnummer</p>
+                </div>
+                <input type="tel" id="phone" name="phone" minLength="8" maxlength="8" pattern="[0-9]+"
+                    placeholder="Fx (12-34-56-78)" required>
 
                 </div>
             </section>

@@ -61,10 +61,11 @@ function start() {
 
 
 function errorMessages() {
-   
-
-    //Rettede lige i hvordan der kaldes, så der kun kommer fejlbesked op for det element man integerer med og ikke det hele på en gang :)
+   const ledsagerinput = customerForm.elements.ledsagere;
+   const phoneinput = customerForm.elements.phone;
    const jaegereinput = customerForm.elements.jaegere;
+
+
    //så bare kopier dette format hvert input felt
    jaegereinput.addEventListener('input', () => {
 
@@ -79,13 +80,30 @@ function errorMessages() {
         document.getElementById("subTextUnderJagtTo").style.display = "none";
         document.getElementById("subTextUnderJagt").style.display = "none";
     }
-
-
      }); 
 
+     ledsagerinput.addEventListener('input', () => {
 
+        //Error message for jægere input
+        const ledsagerinput = customerForm.elements.ledsagere.value;
+    
+        if (ledsagerinput > 6 ) {
+            document.getElementById("ledsagerError").style.display = "block";
+        } else {
+            document.getElementById("ledsagerError").style.display = "none";
+        }
 
+         });
 
+    phoneinput.addEventListener('input', () => {
+    const phoneinput = customerForm.elements.phone.value;
+    
+     if (phoneinput.length < 8 ) {
+        document.getElementById("phoneError").style.display = "block";
+    } else {
+        document.getElementById("phoneError").style.display = "none";
+    }
+     }); 
 
 }
 
@@ -93,14 +111,9 @@ function errorMessages() {
 
 //updating the booking object based on the latest input from the user
 function updateCustomerOrder() {
-
-
-
     console.log("updating the order");
     let t = document.getElementById('valgjagt_periode');
     let jagtperiodeText = t.options[t.selectedIndex].text;
-
-
     //only saving the values into the booking object if the input is valid
     if (customerForm.elements.jaegere.checkValidity()) {
         nyBookingInfo.antalJaegere = customerForm.elements.jaegere.value;

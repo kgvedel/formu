@@ -256,6 +256,7 @@ table {
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
+    width: 40rem;
 }
 
 .info h4 {
@@ -305,7 +306,13 @@ table {
 
 #subTextUnderJagt,
 #subTextUnderJagtTo,
-#subTextErrorPeriode {
+#subTextErrorPeriode,
+#ledsagerError,
+#navnError,
+#efternavnError,
+#mailError,
+#phoneError
+ {
     display: none;
     color: #e11b1b;
     margin-bottom: 8px;
@@ -313,7 +320,13 @@ table {
 
 #subTextUnderJagt p,
 #subTextUnderJagtTo p,
-#subTextErrorPeriode p{
+#subTextErrorPeriode p,
+#ledsagerError p,
+#navnError p,
+#efternavnError p,
+#mailError p,
+#phoneError p
+{
     font-size: 0.85rem;
     font-style: italic;
 }
